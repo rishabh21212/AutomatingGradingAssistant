@@ -1,7 +1,6 @@
-# Specification, Design and development of a Conversation GenAI powered
-Dashboard and engine for Automated Grading
+# Specification, Design and development of a Conversation GenAI powered Dashboard and engine for Automated Grading
 
-Background
+**Background**
 
 ![](.\/media/media/image1.png){width="4.169907042869641in"
 height="3.1259339457567803in"}
