@@ -1,33 +1,108 @@
+# Specification, Design and development of a Conversation GenAI powered
+Dashboard and engine for Automated Grading
 
-# Specification, Design and development of a Conversation GenAI powered Dashboard with a recommendation engine for Identification of the Traits of a Good Instructor and for suggesting improvement approaches based on the traits of the top performers
+Background
 
-# Background
+![](.\/media/media/image1.png){width="4.169907042869641in"
+height="3.1259339457567803in"}
 
--   Instructors within an educational system, comprises a combination of
-    various educational groups, faculty members, researchers, students,
-    as well as administrative staff.
+-   Open-ended questions are a favoured tool among instructors for
+    assessing student understanding and encouraging critical exploration
+    of course material.
 
--   Each group of faculty members contributes to different fields.
+-   Providing graded feedback for such responses is a time-consuming
+    task that can lead to overwhelmed instructors and decreased feedback
+    quality.
 
--   The management of all data records related to the performance and
-    activities of the faculty and its members leads to better
-    monitoring, identification of weaknesses, strengths and the traits
-    of a "good" instructor from the top performers allowing the
-    educational institution to characterize instructors which can be
-    used to improve the overall performance of the faculty.
+-   Many instructors resort to simpler question formats, like
+    multiple-choice questions, which provide immediate feedback but at
+    the expense of personalized evaluation and insightful feedback to
+    improve quality of the student experience.
 
--   A conversationally enabled analytical dashboard is the primary
-    interaction tool that is used for monitoring and metricizing faculty
-    performance and using it to identify the traits of good instructors.
+-   Here, we develop a tool that uses large language models (LLMs),
+    guided by instructor-defined criteria, to automated grading and
+    responses to open-ended questions.
 
-# Objectives of the Effort
+-   The tool will deliver grading and rapid personalized feedback,
+    enabling teachers to evaluate students performance per a provided
+    rubric as well as for students to quickly test their knowledge and
+    identify areas for improvement.
 
-The objective of this effort is to develop a functional,
-conversationally driven dashboard for the faculty of BITS and metricize
-and identify the traits of a good instructor and use that to suggest
-improvements in its teaching staff's efficacy.
+-   We provide reference implementations both as a web application and
+    as a Jupyter Notebook widget that can be used with instructional
+    coding or math notebooks.
 
-# Effort Approach and Phases
+-   With instructor guidance, LLMs hold promise to enhance student
+    learning outcomes and elevate instructional methodologies.
+
+# 
+
+# Approach and Discussion
+
+![](.\/media/media/image2.png){width="7.738888888888889in"
+height="3.209722222222222in"}
+
+-   The framework will be capable of defining questions, collecting
+    student responses, transmitting these responses alongside instructor
+    expectations to a large language model (LLM), and generating rapid
+    and personalized feedback for the students.
+
+-   Notably, the entirety of the student-facing workflow can be accessed
+    as a web application or encapsulated within a Jupyter notebook,
+    facilitating real-time enhancement of students' understanding of the
+    course material.
+
+-   The tool can integrate with any application that consumes a JSON
+    HTTP API, expanding its potential to a wider range of educational
+    settings.
+
+-   The tool can help small student groups or 'pods' collaboratively
+    tackle assignments and projects.
+
+-   Human Teaching Assistants, tasked with providing feedback, can
+    benefit from our tool, as it can streamline grading processes,
+    reducing potential for attentional errors and freeing up instructors
+    to deliver more personalized guidance to students.
+
+-   Fully automated student evaluation is challenging both from a
+    technical perspective and from a human perspective, and thus this
+    tool is designed not to fully automate grading, but to serve as a
+    tool that strongly enhances the efficiency of the grading process
+    benefiting both students and instructors.
+
+-   The too benefits students by providing rapid and personalized
+    feedback on questions.
+
+-   The tool benefits instructors by helping them to design better
+    questions and grading criteria, by providing first-pass material for
+    learning assessments, and by alleviating some of the burden of
+    providing individualized instruction in large classes.
+
+-   LLMs in general, and Tools like these specifically, are not a
+    replacement human instructors, but they can nonetheless fill a niche
+    among education technologies.
+
+-   While LLMs undoubtedly hold immense power and potential it is
+    crucial to have an in-depth discussion about their ethical
+    implications, especially in education particularly the potential
+    biases that LLMs can introduce.
+
+-   These biases could unintentionally touch on sensitive subjects or
+    unintentionally overlook marginalized groups.
+
+-   Instructors have a role to play by carefully designing their
+    questions and assessment criteria.
+
+-   Further, students should be made aware of the nature of the system
+    they are interacting with and its potential to make mistakes or act
+    on internalized biases.
+
+-   On the other hand, automated systems such as this present an
+    opportunity to reduce instructors' unconscious biases by evaluating
+    all students' responses equally and without any explicit
+    identification.
+
+> Effort Approach and Phases
 
 This effort uses a mixed methods approach that will be conducted in four
 main phases.
@@ -53,9 +128,9 @@ main phases.
         performed
 
     -   A custom application comprising of a conversationally enabled
-        GenAI powered dashboard along with the associated retrieval
-        augmented language model and the recommendation engine is
-        developed using Python programming language in an IDE
+        GenAI powered dashboard along with the associated model and
+        generation engine is developed using Python programming language
+        in an IDE
 
     -   The application will be deployed on a private cloud to ensure
         data privacy
@@ -170,10 +245,11 @@ main phases.
 
 # Final Product
 
--   The Final product of this study is a GenAI powered dashboard for
-    monitoring, evaluating performance, characterizing a "good"
-    instructor and providing improvement recommendations to supporting
-    the improvement of instructors and resources at the faculty level.
+-   The final product of this study is a GenAI powered dashboard for
+    mostly automated grading with human involvement to providing
+    facilities for instructors grade assignments much more efficiently
+    based in teacher provided rubric and thus focus on the task of
+    education.
 
 -   The steps of designing this dashboard can be a basis for developing
     better dashboards for evaluating other faculties or even other
@@ -181,88 +257,46 @@ main phases.
 
 ## Definitions, Description of current shortcomings and needs
 
--   A faculty, as an educational system, consists of a combination of
-    various educational groups, faculty members, researchers, students,
-    and administrative staff.
+-   Assessing students' understanding from natural language responses,
+    however, presents different challenges and has seen significant
+    evolution
 
--   Each faculty member contributes to different areas (teaching,
-    research, and management).
+-   LLMs have been shown to outperform domain-specific language models
 
--   A faculty is a place where different types of courses, learning
-    activities, conferences and conventions are held.
+-   LLMs like GPT-4 could be useful for preliminary grading of
+    introductory physics assignments, they fall short for
+    natural-language responses required in comprehensive exam grading.
 
--   The data related to these activities with the participation of
-    faculty members are facts and information resulting from academic
-    activities.
+-   They also fall short on nuanced programming tasks and open-ended
+    evaluation and therefore, in their current state, LLMs should be
+    treated as a useful but fallible tool, with final assessments still
+    in the hands of (human) instructors
 
--   The data of a faculty refers to the information linked with the
-    academic performance of its instructors and lecturers, such as the
-    details of academic services and contributions, courses completed,
-    student evaluations provided, the number of annual research
-    publications, and the number of committees in which the faculty
-    member is a member of etc.
+-   It is also important to consider students perception of AI graders
+    and how automated graders are deployed to educational settings 
 
--   Although the collection, management, and reporting of faculty data
-    is crucial for each faculty member, as well as for the institution
-    itself as a complete establishment, numerous gaps exist in this
-    area.
+-   Many comment on the socio-technical dynamics of automated grading,
+    including the potential for introduction of machine bias
 
--   While a faculty member may be involved in several activities, most
-    of these activities are not documented and recognized because
-    universities lack a central system for effectively recording these
-    data and presenting a comprehensive report of such activities and
-    performance feedback that can be used to guide faculty performance
-    improvement.
+-   To address the evolving needs of grading open-ended responses, this
+    framework proposes four key enhancements.
 
--   Currently, typically in many universities, different independent
-    systems host faculty data. The lack of internal communication
-    between these systems causes these data to be enclosed in a
-    contained silo.
+-   First, it is specifically designed for open-ended questions, which
+    are not typically well-served by the simple, rubric-based grading of
+    most ed-tech tools.
 
--   Retrieving data from multiple systems is often a manual and a
-    difficult process for administrative staff and faculty members.
+-   Second, the system leverages LLMs to deliver rapid, personalized
+    feedback for student responses along with a quantitative grade as an
+    addition that can be controlled.
 
--   As these data are not analysed using Generative AI techniques or
-    merged to provide an integrated picture, their trends and
-    inter-relationships cannot be exploited
+-   Third, the framework introduces a feedback loop to continually
+    improve instructor-provided prompts, question suggestions, and
+    grading criteria.
 
--   This is a lost opportunity
-
-    -   to acquire data
-
-    -   to discover information
-
-    -   extract knowledge about instructors and their methods
-
-    -   identify the traits of good instructors from the top performers
-
-    -   using those identified traits to recommend performance
-        improvement using AI powered recommender systems)
-
-    -   Positively impacting the overall quality of education delivered.
-
--   Currently, the data recording aspect is inconsistent and inadequate
-    in most higher education institutions,
-
--   There also is only partial automation in terms of recording and
-    sharing data between different systems and constituents.
-
--   Therefore, faculty members and managers spend a lot of time and
-    effort in manual data entry to gather or track the details of
-    academic activities and drive their assessments and performance
-    improvements.
-
--   Despite the fact that the manual entering of data is unavoidable in
-    some cases, use of intelligent automation, enabling interoperability
-    between systems to prevent the duplicate recording of data and use
-    of AI to enable dashboards is not well implemented today.
-
--   In addition, faculty members have inadequate time and skills to
-    perform statistical analyses on data (e.g., findings correlations,
-    querying, recommendations etc.) and extrapolate valuable
-    interpretations, targeted feedback, or practical complementary
-    objectives as the dashboards are poorly design and do not provide
-    easy to use conversational interfaces or AI powered engines.
+-   Finally, the tool also integrates with the Jupyter Notebook
+    environment, extensively utilized in fields such as computer
+    science, data science, and statistics etc., for extensibility and
+    modification to suit particular needs.
 
 -   As a data management as well as decision support tool,
     conversationally enabled dashboards are one of the most effective
@@ -278,43 +312,49 @@ main phases.
 -   A dashboard of accumulated data effectively presents multiple
     sources and a comprehensive summary of important information that
     can be assimilated by faculty members at a glance, queried, directed
-    to identify traits of "good" instructors based on top performers.
+    to identify good question papers.
 
 -   These dashboards enable organizations to measure, monitor,
-    characterise and improve the performance of faculty members and
-    drive continuous improvement using various recommendation methods
-    more effectively.
+    characterise and improve the performance of students while driving
+    continuous instructional improvement.
 
 -   These dashboards build on the foundations of business intelligence,
     data integration infrastructure, data science and Generative AI and
     are used for monitoring, analysis, and management and decision
     support.
 
--   Developing a faculty performance evaluation, benchmarking and
-    improvement dashboard is useful for quickly sharing with faculty
-    members information about their performance in a way that requires
-    minimal effort and helps them better understand the data by querying
-    the data using language-based interfaces (chatbots) and asking for
-    suggestions on improvement (recommendation engines) as well as
-    identifying those traits (Factor Analysis, Causal Analysis) that can
-    be used to identify an effective teacher.
+-   Developing a grading assistant for a student specific, rubric
+    included open ended performance evaluation, which is useful for
+    quickly sharing with the students the information about their
+    performance in a way that requires minimal effort from instructors
+    represents enormous value.
 
--   Observing, querying and interpreting the data presented in large
-    tables and lengthy reports are exhausting and time-consuming for
-    faculty members. In other words, a dashboard, if designed
-    appropriately with conversational interfaces, can help faculty
-    members quickly spot their strengths and areas of progress and
-    identify the trends and steps necessary for improvement and
-    recommend/suggest methods for improvement.
+-   Generating questions and evaluating the answers presented by
+    students to generated questions based on lengthy content is
+    time-consuming and exhausting when required to be done at scale for
+    faculty members.
 
--   Based on the current state explorations, there are substantial gaps
-    in the reporting and management of faculty data.
+-   A dashboard, if designed appropriately with a conversational
+    interface, can help instructors quickly evaluate answers that are
+    compliant with course specific instructor provided rubric
 
--   Therefore, it is necessary to develop a comprehensive dashboard for
-    monitoring and evaluating the performance of instructors across
-    various activities such as education, research, cultural fit,
-    student affairs participation, resource management effectiveness and
-    technology development.
+-   Such an application enables educators to integrate open-ended
+    questions into their curriculum without incurring an instructor
+    labor cost.
+
+-   This allows students to gain rapid, individualized, and
+    sophisticated feedback, thereby creating a highly effective learning
+    loop that can enhance the absorption of course materials.
+
+-   It guides students in refining their responses, enhancing their
+    understanding and application of concepts in each iteration.
+
+-   This feedback is generated by a large language model (LLM), which
+    circumvents the attentional errors often made by human graders,
+    particularly when assessing a large volume of assignments.
+
+-   The LLM is capable of delivering intricate responses to students
+    swiftly
 
 Approach Details
 
@@ -333,7 +373,7 @@ Approach Details
     software development must have obtained an ethical approval and will
     be conducted in four phases.
 
-## Phase One: Identification of functional and non-functional requirements of performance dashboards and performance indicators and traits of good instructors through interviews and systematic research 
+## Phase One: Identification of functional and non-functional requirements of Grading Assistant via interviews and systematic research 
 
 -   The aim of this phase is to extract the functional parameters of the
     faculty, as well as the capabilities of the performance dashboard.
@@ -344,12 +384,12 @@ Approach Details
     cultural and student affairs, resource management, and development &
     technology, each of which has its own performance indicators.
 
-## Phase Two: Requirements Of the Instructor Traits Dashboard From The Perspective Of Users
+## Phase Two: Requirements Of the Grading Assistant Dashboard From The Perspective Of End Users
 
 -   This phase is conducted in two steps.
 
 -   In the first step, a qualitative study is conducted to identify the
-    requirements of the performance dashboard software.
+    requirements of the dashboard software.
 
     -   For this purpose, eight educational group directors and faculty
         directors are selected by purposeful sampling for interviews.
@@ -362,27 +402,29 @@ Approach Details
         transcribed verbatim in Microsoft Word.
 
     -   The questions of the interview are related to the functional and
-        non-functional requirements of the dashboard, as well as the
-        performance preferences of users.
+        non-functional requirements of the dashboard, gathering the
+        course content as well as the information about the performance
+        preferences of users.
 
     -   After transcription, the interviews are subjected to code
         extraction and then thematic analysis.
 
-        -   Phase 1: Familiarizing yourself with your data
+        -   Phase 1: Familiarizing yourself with the input data
 
-        -   Phase 2: Generating initial codes
+        -   Phase 2: Obtaining initial content along with sample
+            Questions, Answers and Grades
 
-        -   Phase 3: Searching for themes
+        -   Phase 3: Reviewing Educational content and Rubrics
 
-        -   Phase 4: Reviewing themes
+        -   Phase 4: Identifying and grading responses
 
-        -   Phase 5: Defining and naming
+        -   Reviewing generated Grades and Personalized Responses
 
         -   Phase 6: Producing the report themes.
 
 -   In the second step, a questionnaire is designed to identify the key
-    performance indicators of the faculty using the two- round Delphi
-    technique.
+    performance indicators of the Grading Assistant using the two- round
+    Delphi technique.
 
     -   Twenty individuals are purposefully selected among academic
         members, educational group directors, and faculty directors.
@@ -468,69 +510,39 @@ Approach Details
 ##  Brief Value Discussion 
 
 -   This effort aims to design, implement and evaluate the effectiveness
-    of a GenAI powered performance dashboard for functional monitoring,
-    evaluation, and identification of traits of a good instructor to
-    help improve instructor performance and resource management at the
-    faculty level.
+    of a GenAI powered dashboard for AI Powered Human Involved grading
+    and feedback provision to help improve instructor quality of life
+    and resource management at the faculty level.
 
 -   The steps used for developing this dashboard can provide a basis for
-    designing better performance trait identification and recommendation
-    engines for improvement of instructor performance based on the
-    trairs of good instructors gleaned by analysis of top instructors.
+    designing better personalized education delivery for improvement of
+    instructor quality of life and better evaluation of students.
 
 -   Regarding the importance of information integration in organizations
     such as universities, it is essential to trace the flow and
     dimensions of information.
 
 -   The lack of proper management of information resources can impede
-    the efficient identification of the traits of good teachers from the
-    top performers and thus hinder achieving organizational goals
+    achieving organizational goals
 
--   Motivating instructor improvement by working with integrated
-    information presented via graphical dashboards and using
-    conversation interfaces, language models and recommendation engines
-    is possible
+-   Motivating instructor quality of life and quality of student
+    evaluation via automation engines and graphical dashboards providing
+    conversation interfaces, language models and generation engines is
+    possible
 
 -   Eliminating redundant work in different departments, retrieval of
-    similar information, and finally, duplicate flowing of this
-    information into multiple organizational databases, which requires
-    spending extra time and costs to reuse them is possible through this
-    work.
+    past generated grades and responses and finally, elimination of
+    duplicate flowing of this information into multiple disparate
+    organizational databases, which requires spending extra time and
+    costs to reuse them is possible through this work.
 
--   The establishment and use of comprehensive information resources
-    play a strategic role in the qualitative development of universities
-    instructional staff and their transformation into pioneer
-    organizations and contribute a substantial role in achieving the
-    strategic goals of the university.
+-   The establishment and use of the generated information plays a
+    significant role in the qualitative development of student
+    evaluation methods and thus the transformation of the university
+    into pioneers in the use of AI in education.
 
 -   The information obtained from the information system provides a
     powerful management tool in the higher education system.
-
--   Because of providing timely and accurate information, AI powered
-    conversation dashboards with integrated recommendation systems are
-    considered the most powerful systems to fulfill the informational
-    needs of organizations, including universities, and to handle bulk
-    amounts of organizational data about insttructiors.
-
--   Performance Improvement can be achieved based on the identification
-    of the traits of the top faculty performers through a performance
-    dashboard, and using a recommendation engine in combination with a
-    performance coaching process through which the function of
-    instructors is formally and regularly assessed at certain intervals
-    to ensure continuous improvement.
-
--   Evaluation of the performance of academic members refers to the
-    regular assessment of their educational/research activities and
-    determining to what extent the goals of the educational system,
-    according to predetermined criteria, can be achieved.
-
--   Functional monitoring refers to the real-time observation of the
-    faculty's key performance indicators.
-
--   Faculty resource management encompasses being informed of the
-    current situation of human resources and equipment and figuring out
-    optimal ways of deploying them to improve overall faculty
-    performance.
 
 -   Despite the strengths of this approach, we may face some challenges
     while conducting various phases of this research.
