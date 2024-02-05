@@ -1,0 +1,1288 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="Fine-Tuning%20Vs.%20RAG/">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.7">
+    
+    
+      
+        <title>Spanda DL Bootcamp</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.f2e4d321.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#automated-grading" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Spanda DL Bootcamp" class="md-header__button md-logo" aria-label="Spanda DL Bootcamp" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Spanda DL Bootcamp
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Automated Grading
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+    
+  
+  Automated Grading
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Fine-Tuning%20Vs.%20RAG/" class="md-tabs__link">
+        
+  
+    
+  
+  Fine Tuning Vs. RAG
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Harnessing%20LLMs%20with%20Neo4j/" class="md-tabs__link">
+        
+  
+    
+  
+  Harnessing LLMs with Neo4j
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Knowledge%20Graphs%20From%20Unstructured%20Text/" class="md-tabs__link">
+        
+  
+    
+  
+  Knowledge Graphs From Unstructured Text
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Multi-Hop/" class="md-tabs__link">
+        
+  
+    
+  
+  Multi Hop
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Real-Time%20Graph%20Analytics/" class="md-tabs__link">
+        
+  
+    
+  
+  Real Time Graph Analytics
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Spanda DL Bootcamp" class="md-nav__button md-logo" aria-label="Spanda DL Bootcamp" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Spanda DL Bootcamp
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Automated Grading
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Fine-Tuning%20Vs.%20RAG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fine Tuning Vs. RAG
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Harnessing%20LLMs%20with%20Neo4j/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Harnessing LLMs with Neo4j
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Knowledge%20Graphs%20From%20Unstructured%20Text/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Knowledge Graphs From Unstructured Text
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Multi-Hop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multi Hop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Real-Time%20Graph%20Analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Real Time Graph Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="automated-grading"><strong>Automated Grading</strong></h1>
+<h1 id="specification-design-and-development-of-a-conversation-genai-powered-dashboard-and-engine-for-automated-grading">Specification, Design and development of a Conversation GenAI powered Dashboard and engine for Automated Grading</h1>
+<p><strong>Background</strong></p>
+<p><img alt="" src="media/media/image1.png" />{width="4.169907042869641in"
+height="3.1259339457567803in"}</p>
+<ul>
+<li>
+<p>Open-ended questions are a favoured tool among instructors for
+    assessing student understanding and encouraging critical exploration
+    of course material.</p>
+</li>
+<li>
+<p>Providing graded feedback for such responses is a time-consuming
+    task that can lead to overwhelmed instructors and decreased feedback
+    quality.</p>
+</li>
+<li>
+<p>Many instructors resort to simpler question formats, like
+    multiple-choice questions, which provide immediate feedback but at
+    the expense of personalized evaluation and insightful feedback to
+    improve quality of the student experience.</p>
+</li>
+<li>
+<p>Here, we develop a tool that uses large language models (LLMs),
+    guided by instructor-defined criteria, to automated grading and
+    responses to open-ended questions.</p>
+</li>
+<li>
+<p>The tool will deliver grading and rapid personalized feedback,
+    enabling teachers to evaluate students performance per a provided
+    rubric as well as for students to quickly test their knowledge and
+    identify areas for improvement.</p>
+</li>
+<li>
+<p>We provide reference implementations both as a web application and
+    as a Jupyter Notebook widget that can be used with instructional
+    coding or math notebooks.</p>
+</li>
+<li>
+<p>With instructor guidance, LLMs hold promise to enhance student
+    learning outcomes and elevate instructional methodologies.</p>
+</li>
+</ul>
+<h1 id="_1"></h1>
+<h1 id="approach-and-discussion">Approach and Discussion</h1>
+<p><img alt="" src="media/media/image2.png" />{width="7.738888888888889in"
+height="3.209722222222222in"}</p>
+<ul>
+<li>
+<p>The framework will be capable of defining questions, collecting
+    student responses, transmitting these responses alongside instructor
+    expectations to a large language model (LLM), and generating rapid
+    and personalized feedback for the students.</p>
+</li>
+<li>
+<p>Notably, the entirety of the student-facing workflow can be accessed
+    as a web application or encapsulated within a Jupyter notebook,
+    facilitating real-time enhancement of students' understanding of the
+    course material.</p>
+</li>
+<li>
+<p>The tool can integrate with any application that consumes a JSON
+    HTTP API, expanding its potential to a wider range of educational
+    settings.</p>
+</li>
+<li>
+<p>The tool can help small student groups or 'pods' collaboratively
+    tackle assignments and projects.</p>
+</li>
+<li>
+<p>Human Teaching Assistants, tasked with providing feedback, can
+    benefit from our tool, as it can streamline grading processes,
+    reducing potential for attentional errors and freeing up instructors
+    to deliver more personalized guidance to students.</p>
+</li>
+<li>
+<p>Fully automated student evaluation is challenging both from a
+    technical perspective and from a human perspective, and thus this
+    tool is designed not to fully automate grading, but to serve as a
+    tool that strongly enhances the efficiency of the grading process
+    benefiting both students and instructors.</p>
+</li>
+<li>
+<p>The too benefits students by providing rapid and personalized
+    feedback on questions.</p>
+</li>
+<li>
+<p>The tool benefits instructors by helping them to design better
+    questions and grading criteria, by providing first-pass material for
+    learning assessments, and by alleviating some of the burden of
+    providing individualized instruction in large classes.</p>
+</li>
+<li>
+<p>LLMs in general, and Tools like these specifically, are not a
+    replacement human instructors, but they can nonetheless fill a niche
+    among education technologies.</p>
+</li>
+<li>
+<p>While LLMs undoubtedly hold immense power and potential it is
+    crucial to have an in-depth discussion about their ethical
+    implications, especially in education particularly the potential
+    biases that LLMs can introduce.</p>
+</li>
+<li>
+<p>These biases could unintentionally touch on sensitive subjects or
+    unintentionally overlook marginalized groups.</p>
+</li>
+<li>
+<p>Instructors have a role to play by carefully designing their
+    questions and assessment criteria.</p>
+</li>
+<li>
+<p>Further, students should be made aware of the nature of the system
+    they are interacting with and its potential to make mistakes or act
+    on internalized biases.</p>
+</li>
+<li>
+<p>On the other hand, automated systems such as this present an
+    opportunity to reduce instructors' unconscious biases by evaluating
+    all students' responses equally and without any explicit
+    identification.</p>
+</li>
+</ul>
+<blockquote>
+<p>Effort Approach and Phases</p>
+</blockquote>
+<p>This effort uses a mixed methods approach that will be conducted in four
+main phases.</p>
+<ul>
+<li>
+<p>In the first phase, all the resources related to the functional
+    dashboard are reviewed in order to identify its functional and
+    operational requirements.</p>
+</li>
+<li>
+<p>In the second phase, the detailed feature statements and
+    capabilities of the software are determined by both qualitative
+    (interview) and quantitative (Delphi) methods.</p>
+<ul>
+<li>
+<p>In this phase, eight people will be interviewed during the
+    qualitative phase, and thematic analysis will be used to analyse
+    the data.</p>
+</li>
+<li>
+<p>For the quantitative step, the two- round Delphi technique will
+    be conducted by the purposeful selection of 21 individuals.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the third phase,</p>
+<ul>
+<li>
+<p>Deployment of the Spanda AI Software Platform will be first
+    performed</p>
+</li>
+<li>
+<p>A custom application comprising of a conversationally enabled
+    GenAI powered dashboard along with the associated model and
+    generation engine is developed using Python programming language
+    in an IDE</p>
+</li>
+<li>
+<p>The application will be deployed on a private cloud to ensure
+    data privacy</p>
+</li>
+<li>
+<p>15 people among faculty members and managers, who are identified
+    as the users of the dashboard software, are selected to evaluate
+    the software.</p>
+</li>
+<li>
+<p>Users' satisfaction with the dashboard software is assessed
+    using a Dashboard Assessment Usability Model.</p>
+</li>
+<li>
+<p>Usability Evaluation Criteria for Dashboards</p>
+<ul>
+<li>
+<p>According to the review of other questionnaires used in
+    previous studies, the following criteria are identified for
+    dashboard evaluation: <em>usefulness, operability,
+    learnability, ease of use, suitability for tasks,
+    improvement of situational awareness, satisfaction, user
+    interface, content, and system capabilities</em></p>
+</li>
+<li>
+<p>Usefulness </p>
+<ul>
+<li>Usefulness is usually defined as meeting a customer\'s
+    needs or providing a competitive advantage with the
+    product\'s attributes or benefits. Designers, generally,
+    aim to deliver useful products. The "usefulness"
+    criterion was used instead of "effectiveness and
+    efficiency" to evaluate the usability of dashboards.</li>
+</ul>
+</li>
+<li>
+<p>Operability </p>
+<ul>
+<li>It refers to a user\'s ability to use and control a
+    dashboard for performing their tasks. In the present
+    study, operability included criteria, such as
+    representation of data in detail, access to various
+    filters and reports, and ability to correct errors and
+    support user. The user control is measured under the
+    "operability" criterion.</li>
+</ul>
+</li>
+<li>
+<p>Learnability </p>
+<ul>
+<li>Learnability is a quality of software interface that
+    allows users to quickly become familiar with them and
+    able to make good use of all their features and
+    capabilities.</li>
+</ul>
+</li>
+<li>
+<p>Ease of Use </p>
+<ul>
+<li>It is a fundamental concept explaining how easily users
+    can employ a dashboard. This criterion was used for
+    dashboard evaluation in the EUCS, Health-ITUES, and TAM
+    questionnaires.</li>
+</ul>
+</li>
+<li>
+<p>Suitability for Tasks </p>
+<ul>
+<li>This criterion can help to assess if users can find out
+    whether a product or system is appropriate for their
+    needs. It provides support for the users\' daily
+    activities and ensures the compatibility and
+    organization of data on the screen with the user\'s
+    tasks.</li>
+</ul>
+</li>
+<li>
+<p>Improvement of Situational Awareness </p>
+<ul>
+<li>Situation awareness at a fundamental level is about
+    understanding what is going on and what might happen
+    next. The criteria for evaluating situational awareness
+    were divided into instability representation, complexity
+    representation, variability representation, arousal
+    support, concentration support, spare mental capacity
+    support, and division of attention.</li>
+</ul>
+</li>
+<li>
+<p>Satisfaction </p>
+<ul>
+<li>This criterion refers to satisfaction with the features,
+    capabilities, and ease of use of a dashboard.</li>
+</ul>
+</li>
+<li>
+<p>User Interface </p>
+<ul>
+<li>It consists of visual and interactive tools. Visual
+    tools in a dashboard involve color coding for data
+    visualization, histogram plots, pie charts, bar graphs,
+    gauges, data labels, and geographic maps. The
+    interactive techniques also include customizable
+    searching, summary view, drill up and drill down, data
+    ordering and filtering, zoom in and zoom out, and
+    real-time feature.</li>
+</ul>
+</li>
+<li>
+<p>Content </p>
+<ul>
+<li>This criterion involves the quantity and quality of data
+    displayed by a dashboard. The quantity of displayed data
+    was measured using two questionnaires (SART and PSSUQ),
+    while quality was measured using SART. The amount of
+    displayed data and their compatibility with the users\'
+    tasks were also evaluated, and data accuracy, timeliness
+    (being up-to-date), comprehensiveness, and relevance
+    were used for measuring data quality.</li>
+</ul>
+</li>
+<li>
+<p>System Capabilities </p>
+<ul>
+<li>Evaluation of compatibility is a criterion to assess
+    software in terms of compatibility with work-related
+    requirements. The dashboard capabilities are evaluated
+    to determine how well its compatibility to work-related
+    processes and how well it satisfies the users\' data
+    requirements.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>The collected data will be analysed using descriptive statistics
+    and data analysis software to suggest feedback and improvement
+    as well as to assess large-scale deployability</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="final-product">Final Product</h1>
+<ul>
+<li>
+<p>The final product of this study is a GenAI powered dashboard for
+    mostly automated grading with human involvement to providing
+    facilities for instructors grade assignments much more efficiently
+    based in teacher provided rubric and thus focus on the task of
+    education.</p>
+</li>
+<li>
+<p>The steps of designing this dashboard can be a basis for developing
+    better dashboards for evaluating other faculties or even other
+    universities.</p>
+</li>
+</ul>
+<h2 id="definitions-description-of-current-shortcomings-and-needs">Definitions, Description of current shortcomings and needs</h2>
+<ul>
+<li>
+<p>Assessing students' understanding from natural language responses,
+    however, presents different challenges and has seen significant
+    evolution</p>
+</li>
+<li>
+<p>LLMs have been shown to outperform domain-specific language models</p>
+</li>
+<li>
+<p>LLMs like GPT-4 could be useful for preliminary grading of
+    introductory physics assignments, they fall short for
+    natural-language responses required in comprehensive exam grading.</p>
+</li>
+<li>
+<p>They also fall short on nuanced programming tasks and open-ended
+    evaluation and therefore, in their current state, LLMs should be
+    treated as a useful but fallible tool, with final assessments still
+    in the hands of (human) instructors</p>
+</li>
+<li>
+<p>It is also important to consider students perception of AI graders
+    and how automated graders are deployed to educational settings </p>
+</li>
+<li>
+<p>Many comment on the socio-technical dynamics of automated grading,
+    including the potential for introduction of machine bias</p>
+</li>
+<li>
+<p>To address the evolving needs of grading open-ended responses, this
+    framework proposes four key enhancements.</p>
+</li>
+<li>
+<p>First, it is specifically designed for open-ended questions, which
+    are not typically well-served by the simple, rubric-based grading of
+    most ed-tech tools.</p>
+</li>
+<li>
+<p>Second, the system leverages LLMs to deliver rapid, personalized
+    feedback for student responses along with a quantitative grade as an
+    addition that can be controlled.</p>
+</li>
+<li>
+<p>Third, the framework introduces a feedback loop to continually
+    improve instructor-provided prompts, question suggestions, and
+    grading criteria.</p>
+</li>
+<li>
+<p>Finally, the tool also integrates with the Jupyter Notebook
+    environment, extensively utilized in fields such as computer
+    science, data science, and statistics etc., for extensibility and
+    modification to suit particular needs.</p>
+</li>
+<li>
+<p>As a data management as well as decision support tool,
+    conversationally enabled dashboards are one of the most effective
+    and renowned forms of data objectification.</p>
+</li>
+<li>
+<p>A dashboard can be defined as: "a tool for visualization that
+    provides the possibility for acquiring awareness, finding trends,
+    planning, and real comparisons.</p>
+</li>
+<li>
+<p>These items are repeatedly embodied in a simple and functional user
+    interface.</p>
+</li>
+<li>
+<p>A dashboard of accumulated data effectively presents multiple
+    sources and a comprehensive summary of important information that
+    can be assimilated by faculty members at a glance, queried, directed
+    to identify good question papers.</p>
+</li>
+<li>
+<p>These dashboards enable organizations to measure, monitor,
+    characterise and improve the performance of students while driving
+    continuous instructional improvement.</p>
+</li>
+<li>
+<p>These dashboards build on the foundations of business intelligence,
+    data integration infrastructure, data science and Generative AI and
+    are used for monitoring, analysis, and management and decision
+    support.</p>
+</li>
+<li>
+<p>Developing a grading assistant for a student specific, rubric
+    included open ended performance evaluation, which is useful for
+    quickly sharing with the students the information about their
+    performance in a way that requires minimal effort from instructors
+    represents enormous value.</p>
+</li>
+<li>
+<p>Generating questions and evaluating the answers presented by
+    students to generated questions based on lengthy content is
+    time-consuming and exhausting when required to be done at scale for
+    faculty members.</p>
+</li>
+<li>
+<p>A dashboard, if designed appropriately with a conversational
+    interface, can help instructors quickly evaluate answers that are
+    compliant with course specific instructor provided rubric</p>
+</li>
+<li>
+<p>Such an application enables educators to integrate open-ended
+    questions into their curriculum without incurring an instructor
+    labor cost.</p>
+</li>
+<li>
+<p>This allows students to gain rapid, individualized, and
+    sophisticated feedback, thereby creating a highly effective learning
+    loop that can enhance the absorption of course materials.</p>
+</li>
+<li>
+<p>It guides students in refining their responses, enhancing their
+    understanding and application of concepts in each iteration.</p>
+</li>
+<li>
+<p>This feedback is generated by a large language model (LLM), which
+    circumvents the attentional errors often made by human graders,
+    particularly when assessing a large volume of assignments.</p>
+</li>
+<li>
+<p>The LLM is capable of delivering intricate responses to students
+    swiftly</p>
+</li>
+</ul>
+<p>Approach Details</p>
+<ul>
+<li>
+<p>The effort will be carried out by the combined method of consecutive
+    mixed designs.</p>
+</li>
+<li>
+<p>In a sequential design, the data collection and data analysis of one
+    component take place after the data collection and data analysis of
+    the other component and depends on the outcomes of the other
+    component.</p>
+</li>
+<li>
+<p>Mixed Methods Research combines both closed-ended response data
+    (quantitative) and open-ended personal data (qualitative).</p>
+</li>
+<li>
+<p>The research environment is the Faculty of BITS. The study and
+    software development must have obtained an ethical approval and will
+    be conducted in four phases.</p>
+</li>
+</ul>
+<h2 id="phase-one-identification-of-functional-and-non-functional-requirements-of-grading-assistant-via-interviews-and-systematic-research">Phase One: Identification of functional and non-functional requirements of Grading Assistant via interviews and systematic research</h2>
+<ul>
+<li>
+<p>The aim of this phase is to extract the functional parameters of the
+    faculty, as well as the capabilities of the performance dashboard.</p>
+</li>
+<li>
+<p>In this step, the research and interviews are performed using a
+    combination of methods. The indicators of performance identified are
+    divided into five different groups, including education, research,
+    cultural and student affairs, resource management, and development &amp;
+    technology, each of which has its own performance indicators.</p>
+</li>
+</ul>
+<h2 id="phase-two-requirements-of-the-grading-assistant-dashboard-from-the-perspective-of-end-users">Phase Two: Requirements Of the Grading Assistant Dashboard From The Perspective Of End Users</h2>
+<ul>
+<li>
+<p>This phase is conducted in two steps.</p>
+</li>
+<li>
+<p>In the first step, a qualitative study is conducted to identify the
+    requirements of the dashboard software.</p>
+<ul>
+<li>
+<p>For this purpose, eight educational group directors and faculty
+    directors are selected by purposeful sampling for interviews.</p>
+</li>
+<li>
+<p>The average duration of each interview will be 30 minutes.</p>
+</li>
+<li>
+<p>At this stage, after coordinating with the interviewee and
+    obtaining informed consent, the voice of the interview is
+    recorded using an electronic recorder, and then its text is
+    transcribed verbatim in Microsoft Word.</p>
+</li>
+<li>
+<p>The questions of the interview are related to the functional and
+    non-functional requirements of the dashboard, gathering the
+    course content as well as the information about the performance
+    preferences of users.</p>
+</li>
+<li>
+<p>After transcription, the interviews are subjected to code
+    extraction and then thematic analysis.</p>
+<ul>
+<li>
+<p>Phase 1: Familiarizing yourself with the input data</p>
+</li>
+<li>
+<p>Phase 2: Obtaining initial content along with sample
+    Questions, Answers and Grades</p>
+</li>
+<li>
+<p>Phase 3: Reviewing Educational content and Rubrics</p>
+</li>
+<li>
+<p>Phase 4: Identifying and grading responses</p>
+</li>
+<li>
+<p>Reviewing generated Grades and Personalized Responses</p>
+</li>
+<li>
+<p>Phase 6: Producing the report themes.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>In the second step, a questionnaire is designed to identify the key
+    performance indicators of the Grading Assistant using the two- round
+    Delphi technique.</p>
+<ul>
+<li>
+<p>Twenty individuals are purposefully selected among academic
+    members, educational group directors, and faculty directors.</p>
+</li>
+<li>
+<p>In the first step of the Delphi technique, a questionnaire with
+    three-choice questions (disagree, no opinion, and agree) and an
+    open-ended question at the end of each section are completed, so
+    people could state if they think anything should be added to the
+    questionnaire for the second step of the Delphi technique.</p>
+</li>
+<li>
+<p>In the second step of the Delphi Technique, the indicators
+    proposed are added and subjected to a poll.</p>
+</li>
+<li>
+<p>For data analysis, items with higher than 75% agreement are
+    accepted, those with an agreement between 50--75% enter the
+    second round of Delphi, and items with \&lt; 50% agreement are
+    omitted from the questionnaire.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="phase-three-software-development-and-deployment">Phase Three: Software Development and Deployment</h2>
+<h2 id="_2"></h2>
+<ul>
+<li>
+<p>For writing the code of this software, the Spanda Platform, Python
+    and Web Technologies are used.</p>
+</li>
+<li>
+<p>The interface of the software is designed using Html, JQuery, CSS,
+    and Javascript languages to be run from standard browsers</p>
+</li>
+<li>
+<p>Database software is used for designing tables and managing the
+    database.</p>
+</li>
+<li>
+<p>Private Cloud connectivity is available</p>
+</li>
+</ul>
+<h2 id="phase-fourunderline-evaluation-of-user-satisfaction">Phase Four~~[:]{.underline}~~ Evaluation Of User Satisfaction</h2>
+<ul>
+<li>
+<p>In this phase, 15 of the academic members and managers of the
+    faculty who are the users of the dashboard software are chosen.</p>
+</li>
+<li>
+<p>In order to evaluate user satisfaction with the dashboard software,
+    a 20 question Dashboard Assessment Usability Model scored based on a
+    five-point Likert scale (1 = \"completely disagree\"; 5 =
+    \"Completely agree\") will be used.</p>
+</li>
+<li>
+<p>In addition, two open-ended questions are presented to the
+    participants so that they can express their viewpoints and
+    recommendations.</p>
+</li>
+<li>
+<p>This scale will evaluate the dimensions of satisfaction (four
+    questions), effectiveness (two questions), efficiency (two
+    questions), operability ( ve questions), learnability (four
+    questions), user interface aesthetics (one question), appropriate
+    recognizability (one question), and accessibility (one question).</p>
+</li>
+</ul>
+<h2 id="open-ended-questions">Open-ended Questions</h2>
+<ul>
+<li>
+<p>Is there any additional information besides the ones provided here
+    that you would want to see in the dashboard?</p>
+</li>
+<li>
+<p>Do you have any other comments or suggestions that you would like to
+    share with us?</p>
+</li>
+<li>
+<p>The validity and reliability of the questionnaire have been
+    confirmed previously.</p>
+</li>
+<li>
+<p>In the final step, the data are presented in tables using
+    descriptive statistics such as frequency and percentage. Data
+    analysis is conducted in Jupyter Notebook software.</p>
+</li>
+</ul>
+<h1 id="ethical-considerations">Ethic~~a~~l consider~~a~~tions</h1>
+<ul>
+<li>
+<p>This study has been approved by the University Ethics Committee.</p>
+</li>
+<li>
+<p>The confidentiality and anonymity of participants' information are
+    strictly observed.</p>
+</li>
+<li>
+<p>During interviews, participants' voices are recorded after obtaining
+    their written informed consent.</p>
+</li>
+<li>
+<p>Participants' information will not be disclosed in any publication
+    form, and they will be clearly explained that they have the right to
+    withdraw from the study at any time.</p>
+</li>
+</ul>
+<h2 id="brief-value-discussion">Brief Value Discussion</h2>
+<ul>
+<li>
+<p>This effort aims to design, implement and evaluate the effectiveness
+    of a GenAI powered dashboard for AI Powered Human Involved grading
+    and feedback provision to help improve instructor quality of life
+    and resource management at the faculty level.</p>
+</li>
+<li>
+<p>The steps used for developing this dashboard can provide a basis for
+    designing better personalized education delivery for improvement of
+    instructor quality of life and better evaluation of students.</p>
+</li>
+<li>
+<p>Regarding the importance of information integration in organizations
+    such as universities, it is essential to trace the flow and
+    dimensions of information.</p>
+</li>
+<li>
+<p>The lack of proper management of information resources can impede
+    achieving organizational goals</p>
+</li>
+<li>
+<p>Motivating instructor quality of life and quality of student
+    evaluation via automation engines and graphical dashboards providing
+    conversation interfaces, language models and generation engines is
+    possible</p>
+</li>
+<li>
+<p>Eliminating redundant work in different departments, retrieval of
+    past generated grades and responses and finally, elimination of
+    duplicate flowing of this information into multiple disparate
+    organizational databases, which requires spending extra time and
+    costs to reuse them is possible through this work.</p>
+</li>
+<li>
+<p>The establishment and use of the generated information plays a
+    significant role in the qualitative development of student
+    evaluation methods and thus the transformation of the university
+    into pioneers in the use of AI in education.</p>
+</li>
+<li>
+<p>The information obtained from the information system provides a
+    powerful management tool in the higher education system.</p>
+</li>
+<li>
+<p>Despite the strengths of this approach, we may face some challenges
+    while conducting various phases of this research.</p>
+</li>
+<li>
+<p>For example, in phase one, participants may refuse full cooperation
+    in completing the questionnaire or conducting the interview due to
+    their busy work schedules.</p>
+</li>
+<li>
+<p>We will try to distribute a considerable number of questionnaires
+    among users to obviate this challenge.</p>
+</li>
+<li>
+<p>During the implementation phase, the software designed may not be
+    suitably integrated with other organizational systems, interfering
+    with information exchange.</p>
+</li>
+<li>
+<p>This challenge will be addressed by writing data processing
+    pipelines that normalize and integrate data from various sources.</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://spanda.io"  target="_blank" rel="noopener">Spanda.io</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://ranga-rangarajan.github.io/spanda-bootcamp/" target="_blank" rel="noopener" title="ranga-rangarajan.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.caa56a14.min.js"></script>
+      
+    
+  </body>
+</html>

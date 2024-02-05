@@ -1,0 +1,846 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Multi-Hop/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.7">
+    
+    
+      
+        <title>Real Time Graph Analytics - Spanda DL Bootcamp</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.f2e4d321.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Spanda DL Bootcamp" class="md-header__button md-logo" aria-label="Spanda DL Bootcamp" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Spanda DL Bootcamp
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Real Time Graph Analytics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Automated Grading
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Fine-Tuning%20Vs.%20RAG/" class="md-tabs__link">
+        
+  
+    
+  
+  Fine Tuning Vs. RAG
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Harnessing%20LLMs%20with%20Neo4j/" class="md-tabs__link">
+        
+  
+    
+  
+  Harnessing LLMs with Neo4j
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Knowledge%20Graphs%20From%20Unstructured%20Text/" class="md-tabs__link">
+        
+  
+    
+  
+  Knowledge Graphs From Unstructured Text
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Multi-Hop/" class="md-tabs__link">
+        
+  
+    
+  
+  Multi Hop
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Real Time Graph Analytics
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Spanda DL Bootcamp" class="md-nav__button md-logo" aria-label="Spanda DL Bootcamp" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Spanda DL Bootcamp
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automated Grading
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fine-Tuning%20Vs.%20RAG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fine Tuning Vs. RAG
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Harnessing%20LLMs%20with%20Neo4j/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Harnessing LLMs with Neo4j
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Knowledge%20Graphs%20From%20Unstructured%20Text/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Knowledge Graphs From Unstructured Text
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Multi-Hop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multi Hop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Real Time Graph Analytics
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Real Time Graph Analytics</h1>
+
+<p><strong>Knowledge Graphs &amp; LLMs: Real-Time Graph Analytics</strong></p>
+<p>Understanding data points through the context of their relationships</p>
+<p><em>This is the fourth blog post of Neo4j's NaLLM project. We started this
+project to explore, develop, and showcase practical uses of these LLMs
+in conjunction with Neo4j. As part of this project, we will construct
+and publicly display demonstrations in a GitHub repository, providing an
+open space for our community to observe, learn, and contribute.
+Additionally, we are writing about our findings in a blog post. You can
+read the previous three blog posts here:</em></p>
+<ul>
+<li>
+<p><a href="https://medium.com/neo4j/harnessing-large-language-models-with-neo4j-306ccbdd2867"><em>[Harnessing LLMs with
+    Neo4j]{.underline}</em></a></p>
+</li>
+<li>
+<p><a href="https://medium.com/neo4j/knowledge-graphs-llms-fine-tuning-vs-retrieval-augmented-generation-30e875d63a35"><em>[Fine-tuning vs. Retrieval-augmented
+    generation]{.underline}</em></a></p>
+</li>
+<li>
+<p><a href="https://medium.com/neo4j/knowledge-graphs-llms-multi-hop-question-answering-322113f53f51"><em>[Multi-hop Question
+    Answering]{.underline}</em></a></p>
+</li>
+</ul>
+<p><img alt="A person standing in front of a whiteboard Description automatically
+generated" src="../media/medium_article_4/media/image1.png" />{width="6.268055555555556in"
+height="6.268055555555556in"}</p>
+<p>Graph data analyst as imagined by Midjourney.</p>
+<p>Large Language Models (LLMs) have significantly changed data
+accessibility to the average person. Less than a year ago, accessing the
+company's data required technical skills involving proficiency in
+numerous dashboarding tools or even diving into the intricacies of a
+database query language. Yet, with the rise of LLMs like ChatGPT, the
+wealth of knowledge hidden within private databases or accessible via
+various APIs is now more readily available than ever with the rise of
+so-called retrieval-augmented LLM applications.</p>
+<p><img alt="A diagram of a bird and books Description automatically
+generated" src="../media/medium_article_4/media/image2.png" />{width="6.268055555555556in"
+height="3.1305555555555555in"}</p>
+<p>Retrieval-augmented generation application. Image by author.</p>
+<p>The idea behind retrieval-augmented applications is to retrieve
+additional information from various sources to allow the LLM to generate
+better and more accurate results. It seems OpenAI has also picked up on
+this trend as they <a href="https://openai.com/blog/function-calling-and-other-api-updates">[introduced
+OpenAI <strong>functions</strong>]{.underline}</a> recently.
+The new OpenAI models are trained to use provide parameters to functions
+(or what other libraries
+call <a href="https://python.langchain.com/docs/modules/agents/tools/">[tools]{.underline}</a>),
+whose signatures and descriptions are passed in the context, to retrieve
+additional information at query time if needed.</p>
+<p>We have observed a strong bias for vector similarity search in
+retrieval-augmented applications. If you opened Twitter or LinkedIn in
+the past three months, you might have seen the various "Chat with your
+PDFs" applications. In those examples, the implementation is relatively
+straightforward. The text is extracted from PDFs, split into chunks if
+needed, and finally stored in a vector database along with its text
+embedding representations.</p>
+<p>The barrier to entry with these types of applications is low, especially
+if you are dealing with small amounts of data. It is fascinating that so
+many <a href="https://a16z.com/2023/06/20/emerging-architectures-for-llm-applications/">[articles giving the impression that only vector databases are
+relevant]{.underline}</a> for
+retrieval-augmented applications are published nowadays.</p>
+<p>While there is immense power in vector similarity-based information
+retrieval from unstructured text, we believe that structured information
+has an important role to play in LLM applications.</p>
+<p>Last time we wrote about <a href="https://medium.com/neo4j/knowledge-graphs-llms-multi-hop-question-answering-322113f53f51">[multi-hop question
+answering]{.underline}</a> and
+how knowledge graphs can help solve problems of retrieving information
+from multiple documents to generate an accurate answer. Additionally, we
+hinted that vector similarity search is not designed for analytics
+workflows, where we rely on structured information.</p>
+<p><strong>Knowledge Graphs &amp; LLMs: Multi-Hop Question Answering</strong></p>
+<p>Retrieve information that spans across multiple documents</p>
+<p>medium.com</p>
+<p>For example, questions like:</p>
+<ul>
+<li>
+<p>Who could introduce me to Emil Eifrém (CEO of Neo4j)?</p>
+</li>
+<li>
+<p>How is ALOX5 gene related to Crohn's disease?</p>
+</li>
+<li>
+<p>When we have a particular microservice outage, how does it affect
+    our products?</p>
+</li>
+<li>
+<p>How does a flight delay propagate through the network?</p>
+</li>
+<li>
+<p>Which users can be credited for a social media post virality?</p>
+</li>
+</ul>
+<p>All these questions require highly-connected information to be able to
+answer the question accurately. For example, to learn who can introduce
+you to Emil, you need information about relationships between people.</p>
+<p>On the other hand, you need to map dependencies between your
+microservices and products in order to evaluate the scale and severity
+of a particular microservice failure.</p>
+<p>In this blog post, we will introduce some of the <strong><em>frequent use cases
+of real-time graph analytics</em></strong> that you might want to implement into
+your LLM applications.</p>
+<p><strong>Finding (Shortest) Paths</strong></p>
+<p>Relationships are first-class citizens in native graph databases.
+Although knowledge graphs allow you to perform typical aggregations and
+filtering to answer questions like "How many customers did we get this
+week?", we will focus more on analytical use cases where traversing the
+relationships is the main component. One such example is finding the
+shortest or all possible paths between data points. For example, to
+answer the question:</p>
+<p><em>Who could introduce me to Emil Eifrem?</em></p>
+<p>We would have to find the shortest path between myself and Emil Eifrem
+in the graph.</p>
+<p><img alt="A diagram of a network Description automatically
+generated" src="../media/medium_article_4/media/image3.png" />{width="6.268055555555556in"
+height="3.9972222222222222in"}</p>
+<p>Single shortest path. Image by author.</p>
+<p>Another use case where finding the shortest paths in real-time would
+come in handy is in any sort of transportation, logistics, or routing
+application. In these applications, you might want to evaluate the top N
+shortest paths to ensure some fallback plan if something unexpected
+happens.</p>
+<p><img alt="A diagram of a network Description automatically
+generated" src="../media/medium_article_4/media/image4.png" />{width="6.268055555555556in"
+height="3.7104166666666667in"}</p>
+<p>Top two shortest paths between stops in Rome. Image by author.</p>
+<p>This image visualizes the top 2 shortest paths between two stops in
+Rome. Such shortest paths could be optimized for distance, time, cost,
+or a combination.</p>
+<p>Another domain where finding paths between data points in your LLM
+applications is the biomedical domain. In the biomedical domain, you are
+dealing with genes, proteins, diseases, drugs, and more. What's perhaps
+more important is that these entities do not exist in isolation but have
+complex, often multilayered relationships with each other.</p>
+<p>For instance, a gene may be associated with multiple diseases, a protein
+may interact with numerous other proteins, a disease might be treatable
+by a variety of drugs, and a drug could have multiple effects on
+different genes and proteins.</p>
+<p>Given the staggering amount of biomedical data available, the number of
+potential relationships between these data points is enormous and is a
+great candidate to be represented as a knowledge graph.</p>
+<p><img alt="A diagram of a network Description automatically
+generated" src="../media/medium_article_4/media/image5.png" />{width="6.268055555555556in"
+height="5.9743055555555555in"}</p>
+<p>All shortest paths between Crohn's disease and ALOX5 gene
+using [Hetionet dataset]{.underline}. Image by author.</p>
+<p>Biomedical knowledge graph can support LLM applications where users are
+be interested in answering questions like</p>
+<p><em>How is ALOX5 gene related to Crohn's disease?</em></p>
+<p>While most LLM applications we see today generate answers as a natural
+language, there is also an excellent opportunity for returning responses
+in the form of line, bar, or even network visualizations. Often the LLM
+can even return the configuration structure needed for the charting
+libraries.</p>
+<p><strong>Information Propagating Through Network</strong></p>
+<p>Another strong knowledge graph fit is domains with networks of
+dependencies. For example, you could have a knowledge graph containing
+the complete <a href="https://neo4j.com/use-cases/network-and-it-operations/">[microservice architecture of your
+system]{.underline}</a>.
+Such a knowledge graph would allow you to power a DevOps chatbot that
+would enable you to evaluate the architecture in real-time and perform
+what-if analysis.</p>
+<p><img alt="A diagram of a company Description automatically
+generated" src="../media/medium_article_4/media/image6.png" />{width="6.268055555555556in"
+height="3.839583333333333in"}</p>
+<p>Microservices &amp; People graph. Screenshot
+from <a href="https://www.youtube.com/watch?v=_qakAUjXiek&amp;t=2517s">[https://www.youtube.com/watch?v=_qakAUjXiek&amp;t=2517s]{.underline}</a></p>
+<p>Also Rhys Evans presented how the <a href="https://www.youtube.com/watch?v=6vblSC1kShI">[Financial Times manages their
+infrastructure as a
+graph]{.underline}</a>.</p>
+<p>Another domain that comes to mind is the supply chain.</p>
+<p><img alt="A diagram of a supply chain Description automatically
+generated" src="../media/medium_article_4/media/image7.png" />{width="6.268055555555556in"
+height="3.359722222222222in"}</p>
+<p>Image
+from <a href="https://neo4j.com/blog/graphs-in-automotive-and-manufacturing/">[https://neo4j.com/blog/graphs-in-automotive-and-manufacturing/]{.underline}</a>.</p>
+<p>Incorporating <a href="https://neo4j.com/use-cases/supply-chain-management/">[supply chain data into knowledge
+graphs]{.underline}</a> can
+significantly enhance the capabilities of large language applications.
+This approach allows us to structure complex supply chain information
+into nodes and relationships, thereby generating a holistic picture of
+how materials, components, and products flow from suppliers to
+customers. The inherent interconnections and dependencies become evident
+and analyzable.</p>
+<p>For language applications, this enables deeper context understanding and
+knowledge generation. For instance, an AI model like ChatGPT can
+leverage this data structure to produce more accurate and insightful
+responses about supply chain scenarios, disruptions, or management
+strategies. It could comprehend and explain the ripple effects of a
+shortage of a certain component, predict potential bottlenecks, or
+suggest optimization strategies.</p>
+<p><em>By aligning the intricacies of supply chain dynamics with the cognitive
+abilities of AI, we can bolster the functionality and value of large
+language applications in a multitude of industrial and commercial
+contexts.</em></p>
+<p><strong>Social Network Analysis and Data Science</strong></p>
+<p>What if your company chatbot went beyond documentation and helped
+deliver insights and recommendations as part of the people analytics?</p>
+<p><img alt="A diagram of a network Description automatically
+generated" src="../media/medium_article_4/media/image8.png" />{width="6.268055555555556in"
+height="4.699305555555555in"}</p>
+<p>Image
+from <a href="https://neo4j.com/blog/neo4j-critical-aspect-human-capital-management-hcm/">[https://neo4j.com/blog/neo4j-critical-aspect-human-capital-management-hcm/]{.underline}</a>.</p>
+<p><a href="https://neo4j.com/use-cases/master-data-management/">[Knowledge graphs in
+HCM]{.underline}</a> can
+serve as an invaluable tool in driving people analytics within a
+company, primarily by creating a robust, interconnected system of
+information that allows for a deep, holistic understanding of employee
+behavior, skills, competencies, interactions, and performance.
+Essentially, a knowledge graph captures and links complex employee data
+--- including demographic information, role history, project
+involvement, performance indicators, and skillsets --- allowing for
+multi-faceted analysis.</p>
+<p>This combination of connected data and ML powered tools enable human
+resources and team leaders to uncover hidden patterns, identify
+high-potential individuals, predict future performance, assess skill
+gaps, and inform training needs, thereby fueling data-driven
+decision-making. By leveraging a knowledge graph, companies can
+streamline talent management and development processes, enhancing
+overall organizational effectiveness and fostering a culture of
+continuous learning and improvement.</p>
+<p>Incorporating a chatbot interface into this knowledge graph-driven
+people analytics system could revolutionize the way companies approach
+HR and talent management. Here's how:</p>
+<p><strong>User-Friendly Access to Complex Data</strong></p>
+<p>A chatbot interface provides an intuitive, conversational manner for
+users to interact with complex datasets. Employees, managers, or HR
+staff wouldn't need to understand intricate databases or analytics
+tools; they could simply ask the chatbot questions about employee
+performance, skills, or team dynamics.</p>
+<p>The chatbot, equipped with natural language processing capabilities,
+would interpret the question, retrieve the relevant information from the
+knowledge graph, and deliver the response in an understandable format.</p>
+<p><strong>Real-Time Insights</strong></p>
+<p>The chatbot interface could offer immediate access to data insights,
+enabling timely decisions.</p>
+<p>If a manager wanted to know how many projects are in the pipeline and
+which people are a good fit and available for a specific project, they
+could ask the chatbot and get an answer in real-time rather than waiting
+for a comprehensive report.</p>
+<p><strong>Scalable Training and Support</strong></p>
+<p>The chatbot could provide individualized support to employees, answering
+questions about company policies, procedures, or career development
+opportunities.</p>
+<p>It could even deliver personalized training recommendations (and perhaps
+the actual training itself) based on an individual's role, skills, and
+career goals. This would democratize access to learning and development
+resources, making it easier for employees to upskill or reskill.</p>
+<p><strong>Predictive Analysis</strong></p>
+<p>Advanced AI chatbots could analyze patterns and trends from the
+knowledge graph to make predictions, such as which employees might be at
+risk of leaving the company or what skills may be in demand in the
+future. These predictive analytics capabilities could help companies be
+proactive rather than reactive in their HR strategies.</p>
+<p>In essence, integrating a chatbot interface with a knowledge
+graph-driven people analytics system would make complex employee data
+more accessible, actionable, and useful to all members of an
+organization. It would be a game-changer in talent management and
+development, driving a more data-informed, proactive, and personalized
+approach to HR.</p>
+<p><strong>Summary</strong></p>
+<p>In conclusion, as we traverse deeper into the era of large language
+models, we must keep in mind the <strong><em>enormous potential of knowledge
+graphs in structuring, organizing, and retrieving information</em></strong> in
+these applications. The combination of structured and unstructured data
+retrieval paves the way for more accurate, reliable, and impactful
+results, extending beyond natural language answers into the realm of
+visually represented information.</p>
+<p>Despite the popularity of vector similarity-based data retrieval
+(recall), we should not underestimate the role of structured information
+and the immense value it brings to LLM applications. Whether it's
+finding the shortest paths, understanding complex biomedical
+relationships, analyzing supply chain scenarios, or revolutionizing HR
+with people analytics, the applications of knowledge graphs are vast and
+profound. We believe the future of LLM-based applications is the
+combination of vector similarity search approach coupled with database
+query languages such as Cypher.</p>
+<p>Through this blog post, we've explored some exciting real-time graph
+analytics use cases that could be implemented into your LLM
+applications. This is only the beginning. We anticipate a future where
+large language models will work more cohesively with knowledge graphs,
+bringing about more innovative solutions to real-world problems.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://spanda.io"  target="_blank" rel="noopener">Spanda.io</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://ranga-rangarajan.github.io/spanda-bootcamp/" target="_blank" rel="noopener" title="ranga-rangarajan.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.caa56a14.min.js"></script>
+      
+    
+  </body>
+</html>
